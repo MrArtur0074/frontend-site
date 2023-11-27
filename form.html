@@ -11,244 +11,430 @@
 		<link rel="icon" href="./image/logo.svg" type="image/png">
 
 	<style>
-		@import url("https:/*fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
-		/* Убираем все отступы */
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		*,
-		*::after,
-		*::before {
-			box-sizing: inherit;
-		}
-
-		/* При расчете размеров инпутов учитываем внутренние отступы и границы */
-		input,
-		textarea {
-			box-sizing: border-box;
-		}
-
-		/* В body устанавливаем шрифт, ширину и высоту, а также фон */
 		body {
+			background-color: white;
 			font-family: "Roboto", sans-serif;
-			font-size: 16px;
-			line-height: 1.2;
-			width: 100%;
-			min-height: 100vh;
-			background: linear-gradient(45deg, #fff1eb, #ace0f9);
-			display: flex;
-			justify-content: center; /* чтобы контейнер */
-			align-items: center; /* был по центру */
-		}
-
-		/* Ограничиваем контейнер по ширине 1000px */
-		.container {
-			width: 100%;
-			max-width: 1000px;
-			padding: 0 20px;
-		}
-
-		/* Стили самой формы */
-		.content {
-			display: flex; /* делаем колонки в ряд */
-			align-items: center; /* выравниваем по центру */
-			justify-content: space-between; /* колонки растянутся на всю ширину */
-			background: #fff;
-			padding: 40px;
-			border-radius: 5px;
-			box-shadow: 4px 4px 8px 0 rgba(34, 60, 80, 0.2);
-		}
-
-		/* Стили левой колонки */
-		.left-side {
-			width: 25%; /* занимает 25% общей ширины */
-			height: 100%; /* растягиваем на всю высоту */
-			position: relative; /* позиционирование относительное (для ::before) */
-			display: flex;
-			flex-direction: column; /* внутри элементы располагаем в колонку */
-		}
-
-		/* Стили разделительной линии между левой и правой колонкой */
-		.left-side::before {
-			content: ""; /* контент нам не нужен */
-			position: absolute; /* позиционируем относительно .left-side */
-			height: 70%; /* высота 70% от .left-side */
-			width: 2px; /* ширина 2px */
-			background: #afafb6;
-			right: -15px; /* позиционируем справа + отступ 15px (справа) */
-			top: 50%; /* выравниваем по центру */
-			transform: translateY(-50%); /* выравниваем по центру */
-		}
-
-		/* Стили правой колонки */
-		.right-side {
-			width: 75%; /* занимает 75% общей ширины */
-			margin-left: 75px;
-		}
-
-		/* Элементы левой колонки: адрес, телефон, email */
-		.details {
-			margin-bottom: 15px;
 			text-align: center;
+			background-color: #f8f8f8;
 		}
 
-		/* Общие стили для иконок */
-		.details i {
-			font-size: 25px; /* задаем размер */
-			color: #3e2093; /* задаем цвет */
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #f8f8f8;
+			max-width: 500px;
+			margin: 20px auto;
+			padding: 30px 20px;
+			/* box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5); */
+            border-radius: 5px;
+            /* text-align: center; */
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */ 
+		.form-control label {
+			display: block;
 			margin-bottom: 10px;
 		}
 
-		/* Стили для заголовков левой колонки */
-		.topic {
-			font-size: 18px;
-			font-weight: 500;
-			margin-bottom: 7px; /* отступ снизу 7px */
+		/* Styling form-control input, 
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #a3a3a3;
+			border-radius: 1px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
 		}
 
-		/* Стили для текста левой колонки */
-		.text-one,
-		.text-two {
-			font-size: 14px;
-			color: #afafb6;
+		.error-message {
+			color: red;
 		}
 
-		/* Заголовок правой колонки */
-		.topic-text {
-			font-size: 23px;
-			font-weight: 600;
-			color: #3e2093;
-			margin-bottom: 10px;
+		/* Styling form-control Radio 
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+            border-radius: 5px;
 		}
 
-		/* Текст правой колонки */
-		.right-side p {
+		/* Styling Button */
+		button {
+            text-align: center;
+			background-color: #00BFF5;
+			border: 1px solid #d4d4d4;
+			border-radius: 5px;
+			font-family: inherit;
+			font-size: 16px;
+            padding: 15px;
+			display: block;
+			width: 70%;
+			margin-top: 50px;
 			margin-bottom: 20px;
+            color: white;
+			margin-left: 14%;
 		}
 
-		/* Контейнер для input'ов формы */
-		.input-box {
-			height: 50px; /* по сути задаем высоту input'а */
-			width: 100%; /* ширина на всю ширину правой колонки (с учетом padding) */
-			margin-bottom: 20px; /* отступаем снизу 20px */
+		button:hover{
+			background-color: #0080a4;
 		}
 
-		/* Стили для input и textarea (поле сообщение) */
-		.input-box input,
-		.input-box textarea,
-		.input-box select{
-			height: 100%; /* растягиваем на всю высоту контейнера 50px */
-			width: 100%; /* растягиваем на всю ширину */
-			border: none; /* убираем внешние края */
-			border-radius: 5px; /* скругляем края */
-			background: #f0f1f8; /* задаем цвет фона */
-			padding: 0 20px; /* отступ справа и слева 20px */
+		/* убираем нижний ползунок прокрутки */
+		body {
+			overflow-x: hidden;
+			margin: 0 !important;
+			padding: 0;
 		}
 
-		/* Отдельно стилизуем поле сообщение */
-		.input-box textarea {
-			resize: none; /* чтобы нельзя было менять высоту */
-			padding: 20px;
-			font-family: "Roboto", sans-serif;
+		.modalBackground {
+			display: none;
+			background: rgba(0, 0, 0, 0.8);
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			cursor: pointer;
+			/* указываем z-индекс для корректного наслаивания */
+			z-index: 1;
+			max-width: 100%;
 		}
 
-		/* Это контейнер для поля сообщение */
-		.message-box {
-			min-height: 110px; /* минимальная высота 110px */
+		h1 {
+			margin-top: 0;
 		}
 
-		/* Стили для контейнера кнопки */
-		.button {
-			display: inline-block; /* делаем блочно-строчный элемент */
+		.modalActive {
+			position: absolute;
+			max-width: 100%;
+			width: 350px;
+			height: auto;
+			top: calc(50% - 250px);
+			left: calc(50% - 175px);
+			border-radius: 10px;
+			background-color: rgb(255, 255, 255);
+			cursor: default;
+			padding: 40px 20px;
 		}
 
-
-		/* Стили для самой кнопки */
-		.button input[type="button"] {
-			color: #fff;
-			font-size: 18px;
-			background: #3e2093;
-			outline: none;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 7px;
-			transition: 0.2s; /* чтобы плавно менялся цвет при наведении (:hover) */
+		.modalClose {
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
 		}
 
-		/* Меняем цвет фона при наведении на кнопку */
-		.button input[type="button"]:hover {
-			background: rgb(0, 0, 207);
+		.modalClose img {
+			margin: 3px;
+			width: 24px;
+			height: 24px;
 		}
-		.right-side {
+
+		.modalWindow {
+			position: relative;
+		}
+
+		.container {
 			padding-top: 30px;
-			padding-bottom: 30px;
 		}
-		.right-side h1 {
-			padding-bottom: 20px;
-		}
-		.right-side {
-			max-width: 800px;
+		
+		@media (max-width: 600px) {
+			.modalActive {
+				max-width: 80%;
+			}
+			.modalActive {
+				position: relative;
+				top: 0 !important;
+				left: 0 !important;
+				margin: 20px auto;
+			}
 		}
 	</style>
 </head>
 
 <body>
-	<div class="right-side">
+	<div class="modalBackground">
+		<div class="modalActive">
+			<div class="modalClose">
+				<img src="image/close.png" />
+			</div>
+			<div class="modalWindow">
+				<h2 id="modal-title" class="modal-title"> Спасибо! </h2>
+				<p id="modal-body" class="modal-body">
+					Ваша заявка принята в обработку. Мы свяжемся с вами в ближайшее время.
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
 		<h1>Jetzt kostenlos Angebot erhalten</h1>
-		<!-- Заголовок для формы -->
-		<div class="topic-text">Отправьте нам сообщение</div>
 
-		<!-- Какой-то дополнительный текст -->
-		<p>
-			Если у вас есть какие-то вопросы или предложения по сотрудничеству -
-			заполните форму ниже
-		</p>
+		<!-- Create Form -->
+		<form id="form" onsubmit="submitForm(this)" method="post">
 
-		<!-- Форма обратной связи -->
-		<form action="#">
-			<div class="input-box">
-				<input type="text" placeholder="Ваше имя" />
+			<!-- Details -->
+			<div class="error-message" id="error-first-name"></div>
+			<div class="form-control">
+				<input type="text" id="first-name" name="name" required placeholder="Name *" />
 			</div>
-			<div class="input-box">
-				<input type="text" placeholder="Введите email" />
+
+			<div class="error-message" id="error-last-name"></div>
+			<div class="form-control">
+				<input type="text" id="last-name" name="surname" required placeholder="Nachname *" />
 			</div>
-			<div class="input-box">
-				<input type="text" placeholder="Введите телефон" />
+
+			<div class="error-message" id="error-email"></div>
+			<div class="form-control">
+				<input type="email" id="email" name="email" required placeholder="E-mail *" />
 			</div>
-			<div class="input-box">
-				<input type="text" placeholder="Введите телефон" />
+
+			<div class="error-message" id="error-country-code"></div>
+			<div class="form-control">
+				<input type="text" id="country-code" name="code_country" required placeholder="Ländervorwahl *" />
 			</div>
-			<div class="input-box">
-				<input type="text" placeholder="Введите телефон" />
+
+			<div class="error-message" id="error-phone"></div>
+			<div class="form-control">
+				<input type="text" id="phone" name="phone_number" required placeholder="Telefon *" />
 			</div>
-			<div class="input-box message-box">
-				<textarea placeholder="Сообщение"></textarea>
+
+
+			<div>
+				<!--<p style="font-size: 14px; text-align: left;">* Diese Felder müssen ausgefüllt werden.<br><br><br>-->
+				<p style="font-size: 14px; text-align: left;">* Pflichtfeld<br><br><br>
 			</div>
-			<div class="input-box">
-				<select name="select">
-					<!--Supplement an id here instead of using 'name'-->
-					<option value="value1">Значение 1</option>
-					<option value="value2" selected>Значение 2</option>
-					<option value="value3">Значение 3</option>
+
+			<div class="error-message" id="error-not-required-sum-investments"></div>
+			<div class="form-control">
+				<label for="not_required_sum_investments">Unverbindliche Anlagesumme</label>
+				<select id="not_required_sum_investments" name="not_required_sum_investments">
+					<option value="Mehr Optionen">Optionen</option>
+					<option value="10 000 - 50 000 EUR">10 000 - 50 000 EUR</option>
+					<option value="50 000 - 100 000 EUR">50 000 - 100 000 EUR</option>
+					<option value="Höher">höher</option>
 				</select>
 			</div>
-			<div class="button">
-				<input type="button" value="Отправить" />
+
+			<div class="error-message" id="error-not-required-term"></div>
+			<div class="form-control">
+				<label for="not_required_term">Unverbindliche Laufzeit</label>
+				<select id="not_required_term" name="not_required_term">
+					<option value="Mehr Optionen">Optionen</option>
+					<option value="Bis 12 Monate">bis 12 Monate</option>
+					<option value="Bis 24 Monate">bis 24 Monate</option>
+					<option value="Länger">länger</option>
+				</select>
 			</div>
+
+			<div>
+				<!--<p style="text-align: left;">Die erbetenen Angaben werden zur Bearbeitung Ihrer Anfragen benötigt. Die Zusendung der Vergleichsangebote ist kosten- und gebührenfrei.</p>-->
+				<br><p>Die erbetenen Angaben werden zur Bearbeitung Ihrer Anfragen benötigt. Die Zusendung der Vergleichsangebote ist kosten- und gebührenfrei.</p>
+			</div>
+
+			<button type="submit" onclick="submitForm(event)">
+				Jetzt Angebot anfordern
+			</button>
 		</form>
 	</div>
 	
 	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			fetchDataAndPopulateSelects();
+		});
 
+		const scrollbarWidth = parseInt(window.innerWidth) - parseInt(document.documentElement.clientWidth);
+
+		const modalBackground = document.getElementsByClassName("modalBackground")[0];
+		const modalClose = document.getElementsByClassName("modalClose")[0];
+		const modalActive = document.getElementsByClassName("modalActive")[0];
+		const modalTitle = document.getElementById("modal-title");
+		const modalBody = document.getElementById("modal-body");
+
+		function openModal() {
+			// делаем модальное окно видимым
+			modalBackground.style.display = "block";
+
+			// позиционируем наше окно по середине, где 175 - половина ширины модального окна
+			modalActive.style.left = "calc(50% - " + (175 - scrollbarWidth / 2) + "px)";
+		}
+
+
+		modalClose.addEventListener("click", function () {
+			modalBackground.style.display = "none";
+		});
+
+		modalBackground.addEventListener("click", function (event) {
+			if (event.target === modalBackground) {
+				modalBackground.style.display = "none";
+			}
+		});
+
+		function fetchDataAndPopulateSelects() {
+			fetch('http://51.20.254.142/api/v1/form/dropdown/')
+					.then(response => {
+						if (!response.ok) {
+							throw new Error('Network response was not ok');
+						}
+						return response.json();
+					})
+					.then(data => {
+						clearSelectOptions('not_required_sum_investments');
+						clearSelectOptions('not_required_term');
+
+						populateSelect('not_required_sum_investments', data.map(item => item.not_required_sum_investments));
+
+						populateSelect('not_required_term', data.map(item => item.not_required_term));
+					})
+					.catch(error => {
+						console.error('Error fetching data:', error.message);
+					});
+		}
+
+		function clearSelectOptions(selectId) {
+			var selectElement = document.getElementById(selectId);
+			while (selectElement.options.length > 0) {
+				selectElement.remove(0);
+			}
+		}
+
+		function populateSelect(selectId, options) {
+			var selectElement = document.getElementById(selectId);
+
+			options.forEach(optionText => {
+				var option = document.createElement('option');
+				option.text = optionText;
+				selectElement.add(option);
+			});
+		}
+
+		function submitForm(event) {
+			event.preventDefault();
+
+			var firstName = document.getElementById('first-name').value;
+			var lastName = document.getElementById('last-name').value;
+			var email = document.getElementById('email').value;
+			var countryCode = document.getElementById('country-code').value;
+			var phone = document.getElementById('phone').value;
+
+			var sum_investments = document.getElementById('not_required_sum_investments').value;
+			var required_term = document.getElementById('not_required_term').value;
+
+			var isValid = true;
+
+			if (firstName === '' || firstName.length > 70) {
+				highlightError('first-name', 'Der Name ist erforderlich und sollte weniger als 70 Zeichen lang sein');
+				isValid = false;
+			} else {
+				removeHighlight('first-name');
+			}
+
+			if (lastName === '' || lastName.length > 70) {
+				highlightError('last-name', 'Der Nachname ist erforderlich und sollte weniger als 70 Zeichen lang sein');
+				isValid = false;
+			} else {
+				removeHighlight('last-name');
+			}
+
+			let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			if (email === '' || email.length > 254 || !emailRegex.test(email)) {
+				highlightError('email', 'Geben Sie eine gültige E-Mail-Adresse ein (bis zu 254 Zeichen)');
+				isValid = false;
+			} else {
+				removeHighlight('email');
+			}
+
+			if (countryCode === '' || countryCode.length > 5) {
+				highlightError('country-code', 'Der Ländercode ist erforderlich und sollte weniger als 5 Zeichen lang sein');
+				isValid = false;
+			} else {
+				removeHighlight('country-code');
+			}
+
+			if (phone === '' || phone.length > 20) {
+				highlightError('phone', 'Die Telefonnummer ist erforderlich und sollte weniger als 20 Zeichen lang sein');
+				isValid = false;
+			} else {
+				removeHighlight('phone');
+			}
+
+			if (isValid) {
+				let data = {
+					name: firstName,
+					surname: lastName,
+					email: email,
+					code_country: countryCode,
+					phone_number: phone,
+					drop_down_info: [{
+						not_required_sum_investments: sum_investments,
+						not_required_term: required_term
+					}]
+				}
+
+				sendData(data)
+			} else {
+				modalTitle.innerHTML = "Eingabe Fehler.";
+				modalBody.innerHTML = "Bitte füllen Sie alle erforderlichen Felder korrekt aus.";
+				openModal();
+			}
+		}
+
+		function highlightError(fieldId, errorMessage) {
+			var field = document.getElementById(fieldId);
+			field.style.border = '1px solid red';
+
+			var errorElement = document.getElementById('error-' + fieldId);
+			errorElement.textContent = errorMessage;
+		}
+
+		function removeHighlight(fieldId) {
+			var field = document.getElementById(fieldId);
+			field.style.border = '';
+
+			var errorElement = document.getElementById('error-' + fieldId);
+			errorElement.textContent = '';
+		}
+
+		/*function clearError(errorId) {
+			var errorElement = document.getElementById(errorId);
+			errorElement.textContent = '';
+		}*/
+
+		function sendData(data) {
+			fetch('http://51.20.254.142/api/v1/form/form/', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Too many requests, please try again');
+				}
+				return response.json();
+			})
+			.then(responseData => {
+				modalTitle.innerHTML = "Daten erfolgreich gesendet.";
+				modalBody.innerHTML = "";
+				openModal();
+				alert('Daten erfolgreich gesendet.');
+			})
+			.catch(error => {
+				modalTitle.innerHTML = "Ein Fehler ist aufgetreten.";
+				modalBody.innerHTML = "Beim Senden der Daten ist ein Fehler aufgetreten: " + error.message;
+				openModal();
+			});
+		}
 	</script>
-	
-
-
-
-	
 </body>
 </html>

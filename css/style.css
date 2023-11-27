@@ -70,6 +70,7 @@ body {
     color: rgb(0, 0, 0);
     text-align: left; /* Изменено на 'left' */
     width: 80%;
+    height: 55%;
   }
   
   .main-text {
@@ -84,7 +85,7 @@ body {
     width: 50px;
     height: 1px;
     border: 0;
-    border-top: 2px solid #ED1C24;
+    border-top: 2px solid #c17820;
     margin: 20px 0;
     padding: 0;
   }
@@ -194,7 +195,7 @@ h2 {
     width: 50px;
     height: 1px;
     border: 0;
-    border-top: 2px solid #ED1C24;
+    border-top: 2px solid #c17820;
   }
   
   @media screen and (max-width: 768px) {
@@ -582,16 +583,16 @@ a:hover {
   width: 50px;
   height: 1px;
   border: 0;
-  border-top: 1px solid #ED1C24;
+  border-top: 1px solid #c17820;
 }
 
 .header-1 {
-  background-image: url(../image/Bank-of-England-Facade.jpg);
+  background-image: url(../image/Bank-of-England-Facade-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .header-2 {
-  background-image: url(../image/money.jpg);
+  background-image: url(../image/money-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -622,9 +623,18 @@ body {
 .text-full-line {
   width: 80%;
 }
+.pt-0 {
+  padding-top: 0px;
+}
+.pt-30 {
+  padding-top: 30px;
+}
+.pt-20 {
+  padding-top: 20px;
+}
 
 .background-grey {
-  background-color: #757171;
+  background-color: #e6e6e6;
 }
 
 .background-dark-grey {
@@ -670,18 +680,34 @@ body {
 }
 .item-top-content {
   flex: auto;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .item-top-content > p:not(.vertical-line) {
-  flex: auto;
+  width: 35%;
   margin: 0;
+  justify-content: center;
 }
 .item-top-content, .item-bottom-content {
-  gap: 20px;
+  gap: 0px;
+}
+.column-custom img {
+  width: 180px;
+  height: 100px !important;
 }
 .item-name {
   text-align: left;
 }
-.item-top-content .vertical-line, .item-bottom-content .vertical-line{
+.item-top-content .vertical-line {
+  width: 1px;
+  background-color: #000; /* Цвет вертикальной черты */
+  margin: 0 10px; /* Расстояние между чертой и соседними элементами */
+  content: "";
+  height: 100px;
+}
+.item-bottom-content .vertical-line {
+  height: auto;
   width: 1px;
   background-color: #000; /* Цвет вертикальной черты */
   margin: 0 10px; /* Расстояние между чертой и соседними элементами */
@@ -701,9 +727,23 @@ body {
 .burger-icon.active {
   transform: rotate(90deg);
 }
-
+.black-main-text {
+  width: 100%;
+  margin-top: 60px;
+  font-size: 31px;
+}
+.mr-15 {
+  margin-right: 25px;
+}
+.black-background {
+  background-color: rgb(0, 0, 0, 0.5);
+  padding: 15px;
+}
 /* Медиа-запрос для стилей мобильной версии */
 @media only screen and (max-width: 600px) {
+  .item-top-content > p:not(.vertical-line) {
+    width: 90%;
+  }
   .burger-menu {
     display: block;
     width: 100%;
@@ -752,7 +792,6 @@ body {
   }
   .footer-text {
     position: relative !important;
-    position: absolute;
     bottom: 0;
     /* left: 50%; */
     transform: translateX(-50%);
@@ -781,7 +820,129 @@ body {
     width: 100%;
     font-size: 24px;
   }
+  .black-main-text {
+    margin-top: 0px;
+    font-size: 18px !important;
+  }
+  .black-sub-text {
+    font-size: 14px !important;
+  }
+}
+.mt-70 {
+  margin-top: 100px;
+  width: 100%;
 }
 .text h1 {
   color: black !important;
+}
+.flex-top{
+  align-items: start !important;
+}
+.logo {
+  width: 130px !important;
+  height: 130px !important;
+}
+.link-blue {
+  color: blue;
+}
+@media (max-width: 420px) {
+  .container5 {
+    padding: 10px;
+  }
+}
+.background-black {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgb(0,0,0,0.5);
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.footer-section {
+  z-index: 10;
+}
+.item-first-line {
+  align-items: center;
+}
+@media (max-width: 920px) {
+  .item-first-line {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .mt-70 {
+    margin-top: 40px;
+  }
+  .item-top-content {
+    flex-direction: column;
+  }
+  .item-top-content > p:not(.vertical-line) {
+    max-width: 90%;
+  }
+  .vertical-line {
+    width: 0 !important;
+    height: 0 !important;
+    display: none;
+  }
+  .text-overlay {
+    left: 1.5%;
+  }
+  .logo {
+    width: 90px !important;
+    height: 90px !important;
+  }
+}
+@media (max-width: 1024px) and (min-width: 600px) {
+  .vertical-line {
+    display: none;
+  }
+}
+.container8 .question {
+  cursor: pointer;
+}
+.container8 .question:hover {
+  text-decoration: underline;
+}
+.color-orange {
+  color: #c17820;
+}
+.pb-0 {
+  padding-bottom: 0px;
+}
+.orange-button {
+  background-color: #c17820;
+  cursor: pointer;
+}
+.right-button {
+  display: flex;
+  justify-content: end;
+  flex: 1;
+  margin-top: auto;
+  align-items: end;
+}
+/*.black-main-text, .black-sub-text {
+  color: #000000 !important;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1) !important;
+}*/
+.container7, .container8, .container6, .container5 {
+  padding-bottom: 0;
+}
+.text-container {
+  margin-bottom: 0px;
+}
+.page-4 h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.mpt-0 {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+.w-90 {
+  width: 90%;
+}
+.text-justify {
+  text-align: justify;
 }
