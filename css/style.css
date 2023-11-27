@@ -585,9 +585,11 @@ a:hover {
   border: 0;
   border-top: 1px solid #c17820;
 }
-
+.mb-10 {
+  margin-bottom: 10px;
+}
 .header-1 {
-  background-image: url(../image/Bank-of-England-Facade-2.jpg);
+  background-image: url(../image/bank.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -694,7 +696,7 @@ body {
 }
 .column-custom img {
   width: 180px;
-  height: 100px !important;
+  height: auto !important;
 }
 .item-name {
   text-align: left;
@@ -741,6 +743,12 @@ body {
 }
 /* Медиа-запрос для стилей мобильной версии */
 @media only screen and (max-width: 600px) {
+  .text-full-line {
+    width: 100%;
+  }
+  .text-full-line a {
+    word-wrap: break-word;
+  }
   .item-top-content > p:not(.vertical-line) {
     width: 90%;
   }
@@ -793,8 +801,8 @@ body {
   .footer-text {
     position: relative !important;
     bottom: 0;
-    /* left: 50%; */
-    transform: translateX(-50%);
+    left: 0% !important;
+    transform: translateX(0%) !important;
     width: 100%;
     /* margin-top: 50px; */
     text-align: center;
@@ -829,7 +837,6 @@ body {
   }
 }
 .mt-70 {
-  margin-top: 100px;
   width: 100%;
 }
 .text h1 {
@@ -912,7 +919,7 @@ body {
   padding-bottom: 0px;
 }
 .orange-button {
-  background-color: #c17820;
+  background-color: #F05802;
   cursor: pointer;
 }
 .right-button {
@@ -928,6 +935,9 @@ body {
 }*/
 .container7, .container8, .container6, .container5 {
   padding-bottom: 0;
+}
+.text-left{
+  text-align: left;
 }
 .text-container {
   margin-bottom: 0px;
