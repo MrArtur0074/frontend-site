@@ -85,7 +85,7 @@ body {
     width: 50px;
     height: 1px;
     border: 0;
-    border-top: 2px solid #c17820;
+    border-top: 2px solid #F05802;
     margin: 20px 0;
     padding: 0;
   }
@@ -195,7 +195,7 @@ h2 {
     width: 50px;
     height: 1px;
     border: 0;
-    border-top: 2px solid #c17820;
+    border-top: 2px solid #F05802;
   }
   
   @media screen and (max-width: 768px) {
@@ -583,13 +583,13 @@ a:hover {
   width: 50px;
   height: 1px;
   border: 0;
-  border-top: 1px solid #c17820;
+  border-top: 1px solid #F05802;
 }
 .mb-10 {
   margin-bottom: 10px;
 }
 .header-1 {
-  background-image: url(../image/bank.jpg);
+  background-image: url(../image/Bank-of-England-Facade-3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -697,6 +697,7 @@ body {
 .column-custom img {
   width: 180px;
   height: auto !important;
+  margin-left: 20px;
 }
 .item-name {
   text-align: left;
@@ -905,6 +906,9 @@ body {
   .vertical-line {
     display: none;
   }
+  .item-top-content {
+    gap: 15px;
+  }
 }
 .container8 .question {
   cursor: pointer;
@@ -913,7 +917,7 @@ body {
   text-decoration: underline;
 }
 .color-orange {
-  color: #c17820;
+  color: #F05802;
 }
 .pb-0 {
   padding-bottom: 0px;
@@ -955,4 +959,29 @@ body {
 }
 .text-justify {
   text-align: justify;
+}
+@media (max-width: 1420px){
+  .main-text {
+    font-size: 30px;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 1300px){
+  .main-text {
+    font-size: 28px;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .main-text, .text-overlay .line,  .text-overlay div, .text-overlay a{
+    margin-left: 15px;
+  }
+  .container6 {
+    padding: 20px;
+  }
+}
+@media (min-width: 1800px) {
+  .main-text {
+    margin-top: 60px;
+  }
 }
