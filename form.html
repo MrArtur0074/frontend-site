@@ -70,7 +70,7 @@
 		/* Styling Button */
 		button {
             text-align: center;
-			background-color: #00BFF5;
+			background-color: #F05802;
 			border: 1px solid #d4d4d4;
 			border-radius: 5px;
 			font-family: inherit;
@@ -85,7 +85,11 @@
 		}
 
 		button:hover{
-			background-color: #0080a4;
+			background-color: #780a0a;
+		}
+
+		select option:hover {
+			background-color: #F05802;
 		}
 
 		/* убираем нижний ползунок прокрутки */
@@ -217,23 +221,27 @@
 			<div class="error-message" id="error-not-required-sum-investments"></div>
 			<div class="form-control">
 				<label for="not_required_sum_investments">Unverbindliche Anlagesumme</label>
-				<select id="not_required_sum_investments" name="not_required_sum_investments">
-					<option value="Mehr Optionen">Optionen</option>
-					<option value="10 000 - 50 000 EUR">10 000 - 50 000 EUR</option>
-					<option value="50 000 - 100 000 EUR">50 000 - 100 000 EUR</option>
-					<option value="Höher">höher</option>
-				</select>
+				<div class="custom-select">
+					<select id="not_required_sum_investments" name="not_required_sum_investments">
+						<option value="Mehr Optionen">Optionen</option>
+						<option value="10 000 - 50 000 EUR">10 000 - 50 000 EUR</option>
+						<option value="50 000 - 100 000 EUR">50 000 - 100 000 EUR</option>
+						<option value="Höher">höher</option>
+					</select>
+				</div>
 			</div>
 
 			<div class="error-message" id="error-not-required-term"></div>
 			<div class="form-control">
 				<label for="not_required_term">Unverbindliche Laufzeit</label>
-				<select id="not_required_term" name="not_required_term">
-					<option value="Mehr Optionen">Optionen</option>
-					<option value="Bis 12 Monate">bis 12 Monate</option>
-					<option value="Bis 24 Monate">bis 24 Monate</option>
-					<option value="Länger">länger</option>
-				</select>
+				<div class="custom-select">
+					<select id="not_required_term" name="not_required_term">
+						<option value="Mehr Optionen">Optionen</option>
+						<option value="Bis 12 Monate">bis 12 Monate</option>
+						<option value="Bis 24 Monate">bis 24 Monate</option>
+						<option value="Länger">länger</option>
+					</select>
+				</div>
 			</div>
 
 			<div>

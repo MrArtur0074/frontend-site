@@ -694,6 +694,12 @@ body {
 .item-top-content, .item-bottom-content {
   gap: 0px;
 }
+.icons-section .section {
+  padding-bottom: 0px;
+}
+.icons-section .section p {
+  margin-bottom: 0px;
+}
 .column-custom img {
   width: 180px;
   height: auto !important;
